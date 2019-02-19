@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Implements hook_autoload_info().
+ */
+function views_rendered_node_autoload_info() {
+	return array(
+		'views_rendered_node_field' => 'views_rendered_node.views.handler.inc'
+	);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function views_rendered_node_views_api() {
+	return array(
+		'api' => 3
+	);
+}
+
+/**
+ * Implements hook_views_data_alter()
+ */
+function views_rendered_node_views_data_alter(&$data) {
+	$data['node']['rendered_node'] = array(
+		'title' => t('Content: Rendered node'),
+		'group' => t('Content'),
+		'field' => array(
+			'help' => t('The Node of the current relationship rendered using a view mode.'),
+			'handler' => 'views_rendered_node_field',
+			'click_sortable' => TRUE
+		)
+	);
+}

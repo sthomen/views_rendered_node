@@ -1,0 +1,8 @@
+name = Views Rendered Node
+description = Plug the hole of a missing rendered view in backdrop (comes from entity in drupal)
+backdrop = 1.x
+version = 1.0
+
+package = views
+
+dependencies[] = views
